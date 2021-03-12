@@ -70,6 +70,8 @@ class App extends Component {
         ],
         // we can write different properties also in the state
         // otherProp: "I am some other Prop"
+        showBooks: true
+        // showBooks: false
     }
 
     // // method
@@ -120,6 +122,10 @@ class App extends Component {
         });
     };
 
+    toggleBooks = () => {
+        this.setState({ showBooks: !this.state.showBooks });
+    }
+
     render() {
 
         // console.log(this.state);
@@ -140,19 +146,36 @@ class App extends Component {
         //     // console.log(book.writer);
         // });
 
-        //dynamic way
-        const books = this.state.books.map((book, index) => {
-            return (
-                // <Book />
-                <Book
-                    bookName={book.bookName}
-                    writer={book.writer}
-                    delete={() => this.deleteBookState(index)}
-                    key={book.id}
-                    inputName={(event) => this.changeWithInputState(event, index)}
-                />
-            );
-        });
+        // //dynamic way
+        // const books = this.state.books.map((book, index) => {
+        //     return (
+        //         // <Book />
+        //         <Book
+        //             bookName={book.bookName}
+        //             writer={book.writer}
+        //             delete={() => this.deleteBookState(index)}
+        //             key={book.id}
+        //             inputName={(event) => this.changeWithInputState(event, index)}
+        //         />
+        //     );
+        // });
+        // // console.log(books);
+
+        // better solution
+        let books = null;
+        if (this.state.showBooks) {
+            books = this.state.books.map((book, index) => {
+                return (
+                    <Book
+                        bookName={book.bookName}
+                        writer={book.writer}
+                        delete={() => this.deleteBookState(index)}
+                        key={book.id}
+                        inputName={(event) => this.changeWithInputState(event, index)}
+                    />
+                );
+            });
+        }
         // console.log(books);
 
         return (
@@ -179,6 +202,9 @@ class App extends Component {
                     writer={this.state.books[2].writer}
                     // change={this.changeBookState} 
                 change={this.changeBookState.bind(this, "Nineteen 84")} />*/}
+                {/* {books} */}
+                <button onClick={this.toggleBooks}>Toggle Books</button>
+                {/* {this.state.showBooks ? books : null} */}
                 {books}
             </div>
         );
