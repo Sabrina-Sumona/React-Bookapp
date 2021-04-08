@@ -1,16 +1,16 @@
 import React from 'react';
 import Book from '../representation/Book';
 
-const BookList = (props) => {
+const BookList = props => {
     return (
         props.books.map((book, index) => {
             return (
                 <Book
                     bookName={book.bookName}
                     writer={book.writer}
-                    delete={() => this.deleteBookState(index)}
+                    delete={() => props.deleteBookState(index)}
                     key={book.id}
-                    inputName={(event) => this.changeWithInputState(event, index)}
+                    inputName={(event) => props.changeWithInputState(event, index)}
                 />
             );
         })
