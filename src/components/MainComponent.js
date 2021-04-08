@@ -48,7 +48,6 @@ import books from '../resources/books';
 // }
 
 class MainComponent extends Component {
-
     // State
     // after react version 16.8, state can be defined without constructor
     // State is the own info of a component
@@ -60,6 +59,20 @@ class MainComponent extends Component {
     //   super();
     //   this.state = {};
     // }
+
+    // here MainComponent is a stateful component & BookList, Book, Myapp, Myself etc. are stateless component
+    // stateful component has props & states
+    // stateless component has only props
+    // stateful component is also called container component
+    // stateless component is also called presentational component
+    // we can do logical works in container component
+    // we can represent informations in presentational component
+    // basically functional component is used to represent the presentational component
+    // basically class component is used to represent the container component
+    // but we can also represent the container component by using the functional component by using react hooks
+    // and we can also represent the presentational component by using the class
+    // but we should always try to use the functional in case of presentational component
+    // and we should try to maximize the presentational component rather than the container componet to make the working easy
     state = {
         // books: [
         //     // each components are the child which needs unique id
