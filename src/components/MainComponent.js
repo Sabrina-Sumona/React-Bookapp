@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import Myself from './components/Myself';
-// import Myapp from './components/Myapp';
-import Book from './Book';
-import booklist from '../resources/booklist';
+// import Myself from './representation/Myself';
+// import Myapp from './representation/Myapp';
+// import Book from './representation/Book';
+import BookList from './lists/BookList';
+import books from '../resources/books';
 
 // generally component renames as the file name which will be exported
 
@@ -72,7 +73,7 @@ class MainComponent extends Component {
         // // otherProp: "I am some other Prop"
         // showBooks: true
         // // showBooks: false
-        books: booklist,
+        books: books,
         showBooks: true
     }
 
@@ -164,49 +165,16 @@ class MainComponent extends Component {
         // // console.log(books);
 
         // better solution
+
         let books = null;
         if (this.state.showBooks) {
-            books = this.state.books.map((book, index) => {
-                return (
-                    <Book
-                        bookName={book.bookName}
-                        writer={book.writer}
-                        delete={() => this.deleteBookState(index)}
-                        key={book.id}
-                        inputName={(event) => this.changeWithInputState(event, index)}
-                    />
-                );
-            });
+            books = <BookList books={this.state.books} />;
         }
-        // console.log(books);
 
         return (
             <div className="App">
                 <h1 style={style}>Book List</h1>
-                {/* <Book bookName={this.state.books[0].bookName} writer={this.state.books[0].writer} />
-                <Book bookName={this.state.books[1].bookName} writer={this.state.books[1].writer} />
-                <Book bookName={this.state.books[2].bookName} writer={this.state.books[2].writer} /> */}
-                {/* this button will be clicked automatically as page loaded if we use () after the method */}
-                {/* <button onClick={this.changeBookState()}>Change State</button> */}
-                {/* <button onClick={this.changeBookState}>Change State</button> */}
-                {/* <button onClick={this.changeBookState.bind(this, "Nineteen Eighty-Four")}>Change State</button> */}
-                {/* <button onClick={() => this.changeBookState("Nineteen Eighty-Four")}>Change State</button>
-                <input type="text" onChange={this.changeWithInputState} /> */}
-                {/* <Book
-                    bookName={this.state.books[0].bookName}
-                    writer={this.state.books[0].writer}
-                    inputName={this.changeWithInputState} />
-                <Book
-                    bookName={this.state.books[1].bookName}
-                    writer={this.state.books[1].writer} />
-                <Book
-                    bookName={this.state.books[2].bookName}
-                    writer={this.state.books[2].writer}
-                    // change={this.changeBookState} 
-                change={this.changeBookState.bind(this, "Nineteen 84")} />*/}
-                {/* {books} */}
                 <button onClick={this.toggleBooks}>Toggle Books</button>
-                {/* {this.state.showBooks ? books : null} */}
                 {books}
             </div>
         );
@@ -214,3 +182,52 @@ class MainComponent extends Component {
 }
 
 export default MainComponent;
+
+        // if (this.state.showBooks) {
+        //     books = this.state.books.map((book, index) => {
+        //         return (
+        //             <Book
+        //                 bookName={book.bookName}
+        //                 writer={book.writer}
+        //                 delete={() => this.deleteBookState(index)}
+        //                 key={book.id}
+        //                 inputName={(event) => this.changeWithInputState(event, index)}
+        //             />
+        //         );
+        //     });
+        // }
+        // console.log(books);
+        // return (
+        // <div className="App">
+        //     <h1 style={style}>Book List</h1>
+        //     {/* <Book bookName={this.state.books[0].bookName} writer={this.state.books[0].writer} />
+        //     <Book bookName={this.state.books[1].bookName} writer={this.state.books[1].writer} />
+        //     <Book bookName={this.state.books[2].bookName} writer={this.state.books[2].writer} /> */}
+        //     {/* this button will be clicked automatically as page loaded if we use () after the method */}
+        //     {/* <button onClick={this.changeBookState()}>Change State</button> */}
+        //     {/* <button onClick={this.changeBookState}>Change State</button> */}
+        //     {/* <button onClick={this.changeBookState.bind(this, "Nineteen Eighty-Four")}>Change State</button> */}
+        //     {/* <button onClick={() => this.changeBookState("Nineteen Eighty-Four")}>Change State</button>
+        //     <input type="text" onChange={this.changeWithInputState} /> */}
+        //     {/* <Book
+        //         bookName={this.state.books[0].bookName}
+        //         writer={this.state.books[0].writer}
+        //         inputName={this.changeWithInputState} />
+        //     <Book
+        //         bookName={this.state.books[1].bookName}
+        //         writer={this.state.books[1].writer} />
+        //     <Book
+        //         bookName={this.state.books[2].bookName}
+        //         writer={this.state.books[2].writer}
+        //         // change={this.changeBookState} 
+        //     change={this.changeBookState.bind(this, "Nineteen 84")} />*/}
+        //     {/* {books} */}
+        //     // <button onClick={this.toggleBooks}>Toggle Books</button>
+        //     {/* {this.state.showBooks ? books : null} */}
+        //     {books}
+        // </div>
+        // );
+//     }
+// }
+
+// export default MainComponent;

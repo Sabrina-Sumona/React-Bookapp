@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import MainComponent from './components/MainComponent';
-import Book from './components/MainComponent';
 
 const App = () => {
 
