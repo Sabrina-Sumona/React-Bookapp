@@ -73,22 +73,30 @@ class MainComponent extends Component {
     // and we can also represent the presentational component by using the class
     // but we should always try to use the functional in case of presentational component
     // and we should try to maximize the presentational component rather than the container componet to make the working easy
-    state = {
-        // books: [
-        //     // each components are the child which needs unique id
-        //     // if we delete any compenent & insert another one that will contain another unique id
-        //     //    we can pass the id into key
-        //     { id: 1, bookName: "1984", writer: "George Orwell" },
-        //     { id: 2, bookName: "The Da Vinci Code", writer: "Dan Brown" },
-        //     { id: 3, bookName: "The Alchemist", writer: "Paulo Coelho" }
-        // ],
-        // // we can write different properties also in the state
-        // // otherProp: "I am some other Prop"
-        // showBooks: true
-        // // showBooks: false
-        books: books,
-        showBooks: true
+    constructor(props) {
+        super(props);
+        this.state = {
+            books: books,
+            showBooks: true
+        }
+        console.log("MainComponent constructor!");
     }
+    // state = {
+    //     // books: [
+    //     //     // each components are the child which needs unique id
+    //     //     // if we delete any compenent & insert another one that will contain another unique id
+    //     //     //    we can pass the id into key
+    //     //     { id: 1, bookName: "1984", writer: "George Orwell" },
+    //     //     { id: 2, bookName: "The Da Vinci Code", writer: "Dan Brown" },
+    //     //     { id: 3, bookName: "The Alchemist", writer: "Paulo Coelho" }
+    //     // ],
+    //     // // we can write different properties also in the state
+    //     // // otherProp: "I am some other Prop"
+    //     // showBooks: true
+    //     // // showBooks: false
+    //     books: books,
+    //     showBooks: true
+    // }
 
     // // method
     // changeBookState = newBookName => {
@@ -142,8 +150,16 @@ class MainComponent extends Component {
         this.setState({ showBooks: !this.state.showBooks });
     }
 
-    render() {
+    UNSAFE_componentWillMount() {
+        console.log("MainComponent componentWillMount!");
+    }
 
+    componentDidMount() {
+        console.log("MainComponent componentDidMount!");
+    }
+
+    render() {
+        console.log("MainCompoent render");
         // console.log(this.state);
         // styling as object
         const style = {
