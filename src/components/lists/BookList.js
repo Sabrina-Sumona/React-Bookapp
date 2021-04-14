@@ -27,13 +27,17 @@ class BookList extends Component {
         console.log("BookList componentDidMount!");
     }
 
-    UNSAFE_componentWillMount() {
-        console.log("BookList componentWillMount!");
-    }
+    // UNSAFE_componentWillMount() {
+    //     console.log("BookList componentWillMount!");
+    // }
 
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        console.log("U BookList componentWillReceiveProps!", nextProps);
-    }
+    // UNSAFE_componentWillReceiveProps(nextProps) {
+    //     console.log("U BookList componentWillReceiveProps!", nextProps);
+    // }
+
+    // UNSAFE_componentWillUpdate(nextProps, nextState) {
+    //     console.log("U BookList componentWillUpdate!");
+    // }
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log("U BookList shouldComponentUpdate!", nextProps, nextState);
@@ -41,12 +45,18 @@ class BookList extends Component {
         // return false;
     }
 
-    UNSAFE_componentWillUpdate(nextProps, nextState) {
-        console.log("U BookList componentWillUpdate!");
-    }
 
     componentDidUpdate() {
         console.log("U BookList componentDidUpdate!");
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log("BookList getDerivedStateFromProps", nextProps, prevState);
+        return prevState;
+    }
+
+    getSnapshotBeforeUpdate() {
+        console.log("U BookList getSnapshotBeforeUpdate");
     }
 
     render() {

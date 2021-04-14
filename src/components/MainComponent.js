@@ -150,9 +150,14 @@ class MainComponent extends Component {
         this.setState({ showBooks: !this.state.showBooks });
     }
 
-    UNSAFE_componentWillMount() {
-        console.log("MainComponent componentWillMount!");
-    }
+    // UNSAFE_componentWillMount() {
+    //     console.log("MainComponent componentWillMount!");
+    // }
+
+
+    // UNSAFE_componentWillUpdate(nextProps, nextState) {
+    //     console.log("U MainComponent componentWillUpdate!");
+    // }
 
     componentDidMount() {
         console.log("MainComponent componentDidMount!");
@@ -164,12 +169,17 @@ class MainComponent extends Component {
         // return false;
     }
 
-    UNSAFE_componentWillUpdate(nextProps, nextState) {
-        console.log("U MainComponent componentWillUpdate!");
-    }
-
     componentDidUpdate() {
         console.log("U MainComponent componentDidUpdate!");
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log("MainComponent getDerivedStateFromProps", nextProps, prevState);
+        return prevState;
+    }
+
+    getSnapshotBeforeUpdate() {
+        console.log("U MainComponent getSnapshotBeforeUpdate");
     }
 
     render() {
