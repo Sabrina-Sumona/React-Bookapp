@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 // import Book from './representation/Book';
 import BookList from './lists/BookList';
 import books from '../resources/books';
+import NewBook from './representation/NewBook';
 
 // generally component renames as the file name which will be exported
 
@@ -150,40 +151,40 @@ class MainComponent extends Component {
         this.setState({ showBooks: !this.state.showBooks });
     }
 
-    // UNSAFE_componentWillMount() {
-    //     console.log("MainComponent componentWillMount!");
+    // // UNSAFE_componentWillMount() {
+    // //     console.log("MainComponent componentWillMount!");
+    // // }
+
+
+    // // UNSAFE_componentWillUpdate(nextProps, nextState) {
+    // //     console.log("U MainComponent componentWillUpdate!");
+    // // }
+
+    // componentDidMount() {
+    //     console.log("MainComponent componentDidMount!");
     // }
 
-
-    // UNSAFE_componentWillUpdate(nextProps, nextState) {
-    //     console.log("U MainComponent componentWillUpdate!");
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log("U MainComponent shouldComponentUpdate!", nextProps, nextState);
+    //     return true;
+    //     // return false;
     // }
 
-    componentDidMount() {
-        console.log("MainComponent componentDidMount!");
-    }
+    // componentDidUpdate() {
+    //     console.log("U MainComponent componentDidUpdate!");
+    // }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("U MainComponent shouldComponentUpdate!", nextProps, nextState);
-        return true;
-        // return false;
-    }
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     console.log("MainComponent getDerivedStateFromProps", nextProps, prevState);
+    //     return prevState;
+    // }
 
-    componentDidUpdate() {
-        console.log("U MainComponent componentDidUpdate!");
-    }
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        console.log("MainComponent getDerivedStateFromProps", nextProps, prevState);
-        return prevState;
-    }
-
-    getSnapshotBeforeUpdate() {
-        console.log("U MainComponent getSnapshotBeforeUpdate");
-    }
+    // getSnapshotBeforeUpdate() {
+    //     console.log("U MainComponent getSnapshotBeforeUpdate");
+    // }
 
     render() {
-        console.log("MainCompoent render");
+        // console.log("MainCompoent render");
         // console.log(this.state);
         // styling as object
         const style = {
@@ -230,9 +231,15 @@ class MainComponent extends Component {
 
         return (
             <div className="App">
+                <div className="nav-bar"></div>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/new">New Book</a></li>
+                </ul>
                 <h1 style={style}>Book List</h1>
                 <button onClick={this.toggleBooks}>Toggle Books</button>
                 {books}
+                <NewBook />
             </div>
         );
     }
@@ -288,3 +295,10 @@ export default MainComponent;
 // }
 
 // export default MainComponent;
+
+// "scripts": {
+  //   "start": "react-scripts start",
+  //   "build": "react-scripts build",
+  //   "test": "react-scripts test",
+  //   "eject": "react-scripts eject"
+  // },
