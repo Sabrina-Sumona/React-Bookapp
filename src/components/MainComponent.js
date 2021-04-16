@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import BookList from './lists/BookList';
 import books from '../resources/books';
 import NewBook from './representation/NewBook';
+import { Route, NavLink } from 'react-router-dom';
 
 // generally component renames as the file name which will be exported
 
@@ -193,7 +194,6 @@ class MainComponent extends Component {
             backgroundColor: "black",
             color: "white",
         };
-
         //const booksState = this.state.books;
         //console.log(booksState);
         //map(function(item,index,array))
@@ -231,15 +231,24 @@ class MainComponent extends Component {
 
         return (
             <div className="App">
-                <div className="nav-bar"></div>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/new">New Book</a></li>
-                </ul>
-                <h1 style={style}>Book List</h1>
-                <button onClick={this.toggleBooks}>Toggle Books</button>
-                {books}
-                <NewBook />
+                {/* when NavLink is used, we can use Nav in the place of div tag */}
+                <nav className="nav-bar">
+                    <ul>
+                        {/* we can use Link and NavLink in the place of a tag */}
+                        <li><NavLink to="/" exact>Home</NavLink></li>
+                        <li><NavLink to="/new-book">New Book</NavLink></li>
+                    </ul>
+                </nav>
+                {/* it routes when exactly match */}
+                <Route path="/" exact render={() =>
+                    <div>
+                        <h1 style={style}>Book List</h1>
+                        <button onClick={this.toggleBooks}>Toggle Books</button>
+                        {books}
+                    </div>}>
+                </Route>
+                {/* <Route path="/new-book" exact render={() => <NewBook />}></Route> */}
+                <Route path="/new-book" exact component={NewBook}></Route>
             </div>
         );
     }

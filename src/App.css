@@ -15,5 +15,9 @@
 
 .nav-bar a {
   text-decoration: none;
-  color: black;
+  color: black,
+}
+
+.nav-bar a:hover, a:active, a.active{
+  color: rgb(255, 123, 0);
 }
