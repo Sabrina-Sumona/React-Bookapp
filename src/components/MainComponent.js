@@ -3,7 +3,7 @@ import BookList from './lists/BookList';
 import books from '../resources/books';
 import NewBook from './representation/NewBook';
 import BookDetail from './representation/BookDetail';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 
 class MainComponent extends Component {
     state = {
@@ -48,21 +48,21 @@ class MainComponent extends Component {
                         <li><NavLink to="/new-book">New Book</NavLink></li>
                     </ul>
                 </nav>
-                {/* it routes when exactly match */}
-                < Route path="/" exact render={() =>
-                    // if import by using render (not component), we can't see the routers props
-                    <div>
-                        <h1 style={style}>Book List</h1>
-                        {/* <button onClick={this.toggleBooks}>Toggle Books</button> */}
-                        {books}
-                    </div>}>
-                </Route >
-                {/* <Route path="/new-book" exact render={() => <NewBook />}></Route> */}
-                < Route path="/new-book" exact component={NewBook} ></Route >
-                {/* <BookDetail book={this.state.selectedBook} /> */}
-                {/* :id works as a var */}
-                < Route path="/:id" render={() => <div> <h1 style={style}>Book Details</h1> <BookDetail book={this.state.selectedBook} /> </div>} />
-                {/* <Route path="/:id" render={() => <BookDetail book={this.state.selectedBook} />} /> */}
+                <Switch>
+                    {/* when switch using we must maintain the sequence unless we can acess others */}
+                    {/* we can also place other routes outside of the switch rather than that particular route which needs switch */}
+                    {/* it routes when exactly match */}
+                    < Route path="/" exact render={() =>
+                        // if import by using render (not component), we can't see the routers props
+                        <div>
+                            <h1 style={style}>Book List</h1>
+                            {/* <button onClick={this.toggleBooks}>Toggle Books</button> */}
+                            {books}
+                        </div>}>
+                    </Route >
+                    < Route path="/new-book" exact component={NewBook} ></Route >
+                    < Route path="/:id" render={() => <div> <h1 style={style}>Book Details</h1> <BookDetail book={this.state.selectedBook} /> </div>} />
+                </Switch>
             </div >
         );
     }

@@ -364,3 +364,10 @@
 
 // wrapping with router to show the router related props
 export default withRouter(BookList); */}
+
+{/* <Route path="/new-book" exact render={() => <NewBook />}></Route> */ }
+{/* <BookDetail book={this.state.selectedBook} /> */ }
+{/* :id works as a var */ }
+{/* < Route path="/books/:id" render={() => <div> <h1 style={style}>Book Details</h1> <BookDetail book={this.state.selectedBook} /> </div>} /> */ }
+{/* <Route path="/:id" render={() => <BookDetail book={this.state.selectedBook} />} /> */ }
+{/* < Route path="/:id" render={() => <div> <h1 style={style}>Book Details</h1> <BookDetail book={this.state.selectedBook} /> </div>} /> */ }

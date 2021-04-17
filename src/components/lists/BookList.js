@@ -8,6 +8,8 @@ const BookList = props => {
     return (
         props.books.map((book, index) => {
             return (
+                // <Link to={"/" + book.id} key={book.id} style={{ textDecoration: "none", color: "darkblue" }}>
+                //  <Link to={"/books/" + book.id} key={book.id} style={{ textDecoration: "none", color: "darkblue" }}>
                 <Link to={"/book" + book.id} key={book.id} style={{ textDecoration: "none", color: "darkblue" }}>
                     <Book
                         bookName={book.bookName}
