@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.nav-bar {
+  border: 5px solid darkblue;
+  background: black;
+}
+
 .nav-bar ul {
   list-style: none;
   margin: 0;
@@ -15,9 +20,14 @@
 
 .nav-bar a {
   text-decoration: none;
-  color: black,
+  color: white;
+  border: 1px solid white;
+  background: darkblue;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 .nav-bar a:hover, a:active, a.active{
-  color: rgb(185, 91, 3);
+  color: rgb(245, 184, 128);
 }

@@ -23,10 +23,14 @@ class MainComponent extends Component {
     render() {
         // styling as object
         const style = {
-            border: "2px solid blue",
+            border: "5px solid darkblue",
             borderRadius: "5px",
             backgroundColor: "black",
             color: "white",
+            display: "inline-block",
+            paddingLeft: "10px",
+            paddingRight: "15px",
+            cursor: "default",
         };
 
         const books = <BookList
@@ -35,9 +39,9 @@ class MainComponent extends Component {
         />;
 
         return (
-            <div className="App">
+            <div className="App" >
                 {/* when NavLink is used, we can use Nav in the place of div tag */}
-                <nav className="nav-bar">
+                < nav className="nav-bar" >
                     <ul>
                         {/* we can use Link and NavLink in the place of a tag */}
                         <li><NavLink to="/" exact>Home</NavLink></li>
@@ -45,18 +49,21 @@ class MainComponent extends Component {
                     </ul>
                 </nav>
                 {/* it routes when exactly match */}
-                <Route path="/" exact render={() =>
+                < Route path="/" exact render={() =>
                     // if import by using render (not component), we can't see the routers props
                     <div>
                         <h1 style={style}>Book List</h1>
                         {/* <button onClick={this.toggleBooks}>Toggle Books</button> */}
                         {books}
                     </div>}>
-                </Route>
+                </Route >
                 {/* <Route path="/new-book" exact render={() => <NewBook />}></Route> */}
-                <Route path="/new-book" exact component={NewBook}></Route>
-                <BookDetail book={this.state.selectedBook} />
-            </div>
+                < Route path="/new-book" exact component={NewBook} ></Route >
+                {/* <BookDetail book={this.state.selectedBook} /> */}
+                {/* :id works as a var */}
+                < Route path="/:id" render={() => <div> <h1 style={style}>Book Details</h1> <BookDetail book={this.state.selectedBook} /> </div>} />
+                {/* <Route path="/:id" render={() => <BookDetail book={this.state.selectedBook} />} /> */}
+            </div >
         );
     }
 }

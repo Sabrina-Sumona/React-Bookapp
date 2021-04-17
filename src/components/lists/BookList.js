@@ -1,24 +1,20 @@
 import React from 'react';
 // import React, { Component } from 'react';
 import Book from '../representation/Book';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const BookList = props => {
     // console.log(props);
     return (
         props.books.map((book, index) => {
             return (
-                <Book
-                    bookName={book.bookName}
-                    writer={book.writer}
-                    // delete={() => props.deleteBookState(index)}
-                    key={book.id}
-                    // inputName={(event) => props.changeWithInputState(event, index)}
-                    // inputName={(event) => props.selectedBookHandler(book.id)
-                    // }
-                    // selectedBookHandler={() => props.selectedBookHandler(book)}
-                    selectedBookHandler={() => props.selectedBookHandler(book.id)}
-                />
+                <Link to={"/book" + book.id} key={book.id} style={{ textDecoration: "none", color: "darkblue" }}>
+                    <Book
+                        bookName={book.bookName}
+                        writer={book.writer}
+                        selectedBookHandler={() => props.selectedBookHandler(book.id)}
+                    />
+                </Link>
             );
         })
     );
