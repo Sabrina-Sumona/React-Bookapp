@@ -3,7 +3,7 @@ import BookList from './lists/BookList';
 import books from '../resources/books';
 import NewBook from './representation/NewBook';
 import BookDetail from './representation/BookDetail';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
 class MainComponent extends Component {
     state = {
@@ -45,6 +45,7 @@ class MainComponent extends Component {
                     <ul>
                         {/* we can use Link and NavLink in the place of a tag */}
                         <li><NavLink to="/" exact>Home</NavLink></li>
+                        {/* <li><NavLink to="/book-list" exact>Home</NavLink></li> */}
                         <li><NavLink to="/new-book">New Book</NavLink></li>
                     </ul>
                 </nav>
@@ -52,7 +53,7 @@ class MainComponent extends Component {
                     {/* when switch using we must maintain the sequence unless we can acess others */}
                     {/* we can also place other routes outside of the switch rather than that particular route which needs switch */}
                     {/* it routes when exactly match */}
-                    < Route path="/" exact render={() =>
+                    < Route path="/book-list" exact render={() =>
                         // if import by using render (not component), we can't see the routers props
                         <div>
                             <h1 style={style}>Book List</h1>
@@ -62,6 +63,8 @@ class MainComponent extends Component {
                     </Route >
                     < Route path="/new-book" exact component={NewBook} ></Route >
                     < Route path="/:id" render={() => <div> <h1 style={style}>Book Details</h1> <BookDetail book={this.state.selectedBook} /> </div>} />
+                    {/* redirect */}
+                    <Redirect from="/" to to="/book-list" />
                 </Switch>
             </div >
         );
