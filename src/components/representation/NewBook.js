@@ -9,6 +9,10 @@ class NewBook extends Component {
             writer: "",
             description: ""
         }
+        // binding all input fields , now each input field does not require to bind in the form*/}
+        this.handleInputChange = this.handleInputChange.bind(this);
+        // binding the form , now the form does not require to bind inside*/}
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInputChange = event => {
@@ -22,8 +26,14 @@ class NewBook extends Component {
         })
     }
 
-    componentDidUpdate() {
+    // componentDidUpdate() {
+    //     console.log(this.state);
+    // }
+
+    handleSubmit = event => {
         console.log(this.state);
+        // we can send info to db from here
+        event.preventDefault();
     }
 
     render() {
@@ -31,18 +41,19 @@ class NewBook extends Component {
             <div>
                 <h1 className="heading">New Book Entry</h1>
                 {/* we can handle a form by using controlled component (controlled by state) or uncontrolled component */}
-                <form>
+                <form onSubmit={this.handleSubmit}>
+                    {/* if we use binding in the form, then each input field does not require to bind */}
                     <label>Book Name:</label>
                     <br />
-                    <input type="text" name="bookName" value={this.state.bookName} onChange={(event) => this.handleInputChange(event)} />
+                    <input type="text" name="bookName" value={this.state.bookName} onChange={this.handleInputChange} />
                     <br />
                     <label>Writer:</label>
                     <br />
-                    <input type="text" name="writer" value={this.state.writer} onChange={(event) => this.handleInputChange(event)} />
+                    <input type="text" name="writer" value={this.state.writer} onChange={this.handleInputChange} />
                     <br />
                     <label>Description:</label>
                     <br />
-                    <textarea name="description" value={this.state.description} onChange={(event) => this.handleInputChange(event)} />
+                    <textarea name="description" value={this.state.description} onChange={this.handleInputChange} />
                     <br />
                     <input type="submit" value="submit" />
                 </form>
