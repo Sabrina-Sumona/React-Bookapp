@@ -1,61 +1,47 @@
 import React, { Component } from 'react';
 
+// using uncontrolled component
 class NewBook extends Component {
-    // using controlled component
     constructor(props) {
         super(props);
-        this.state = {
-            bookName: "",
-            writer: "",
-            description: ""
-        }
-        // binding all input fields , now each input field does not require to bind in the form*/}
-        this.handleInputChange = this.handleInputChange.bind(this);
-        // binding the form , now the form does not require to bind inside*/}
+        // if createRef is imported we can write createRef(), else React.createRef()
+        this.bookName = React.createRef();
+        this.writer = React.createRef();
+        this.description = React.createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleInputChange = event => {
-        // console.log(event.target);
-        const name = event.target.name;
-        const value = event.target.value;
-        // console.log(name+": "+value);
-        this.setState({
-            // [] is used to store the function's internal var
-            [name]: value
-        })
-    }
-
-    // componentDidUpdate() {
-    //     console.log(this.state);
-    // }
-
     handleSubmit = event => {
-        console.log(this.state);
-        // we can send info to db from here
+        // return an obj
+        // console.log(this.bookName);
+        console.log(this.bookName.current.name + ": " + this.bookName.current.value);
+        // console.log(this.writer);
+        // return the current value
+        console.log(this.writer.current.name + ": " + this.writer.current.value);
+        // console.log(this.description);
+        console.log(this.description.current.name + ": " + this.description.current.value);
         event.preventDefault();
     }
 
     render() {
         return (
             <div>
-                <h1 className="heading">New Book Entry</h1>
-                {/* we can handle a form by using controlled component (controlled by state) or uncontrolled component */}
+                <h1>New Book Entry</h1>
+                {/* we can handle a form by using controlled component (controlled by state) or uncontrolled component (directly connection with the inputs) */}
                 <form onSubmit={this.handleSubmit}>
-                    {/* if we use binding in the form, then each input field does not require to bind */}
-                    <label>Book Name:</label>
+                    <label>Book Name: </label>
                     <br />
-                    <input type="text" name="bookName" value={this.state.bookName} onChange={this.handleInputChange} />
+                    <input type="text" name="bookName" ref={this.bookName} />
                     <br />
-                    <label>Writer:</label>
+                    <label>Writer: </label>
                     <br />
-                    <input type="text" name="writer" value={this.state.writer} onChange={this.handleInputChange} />
+                    <input type="text" name="writer" ref={this.writer} />
                     <br />
-                    <label>Description:</label>
+                    <label>Description: </label>
                     <br />
-                    <textarea name="description" value={this.state.description} onChange={this.handleInputChange} />
+                    <textarea name="description" ref={this.description} />
                     <br />
-                    <input type="submit" value="submit" />
+                    <input type="submit" value="Submit" />
                 </form>
             </div >
         );
