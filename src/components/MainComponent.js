@@ -11,6 +11,7 @@ class MainComponent extends Component {
         // showBooks: true
         selectedBook: null
     }
+
     selectedBookHandler = bookId => {
         // filter an object array according to the passing id
         const book = this.state.books.filter(book =>
@@ -21,17 +22,6 @@ class MainComponent extends Component {
     }
 
     render() {
-        // styling as object
-        const style = {
-            border: "5px solid darkblue",
-            borderRadius: "5px",
-            backgroundColor: "black",
-            color: "white",
-            display: "inline-block",
-            paddingLeft: "10px",
-            paddingRight: "15px",
-            cursor: "default",
-        };
 
         const books = <BookList
             books={this.state.books}
@@ -56,15 +46,15 @@ class MainComponent extends Component {
                     < Route path="/book-list" exact render={() =>
                         // if import by using render (not component), we can't see the routers props
                         <div>
-                            <h1 style={style}>Book List</h1>
+                            <h1 className="heading">Book List</h1>
                             {/* <button onClick={this.toggleBooks}>Toggle Books</button> */}
                             {books}
                         </div>}>
                     </Route >
                     < Route path="/new-book" exact component={NewBook} ></Route >
-                    < Route path="/:id" render={() => <div> <h1 style={style}>Book Details</h1> <BookDetail book={this.state.selectedBook} /> </div>} />
+                    < Route path="/:id" render={() => <div> <h1 className="heading">Book Details</h1> <BookDetail book={this.state.selectedBook} /> </div>} />
                     {/* redirect */}
-                    <Redirect from="/" to to="/book-list" />
+                    <Redirect from="/" to="/book-list" />
                 </Switch>
             </div >
         );

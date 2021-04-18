@@ -226,6 +226,19 @@
 // // changeWithInputState={this.changeWithInputState}
 // />;
 // console.log(books);
+
+// styling as object
+// const style = {
+//     border: "5px solid darkblue",
+//     borderRadius: "5px",
+//     backgroundColor: "black",
+//     color: "white",
+//     display: "inline-block",
+//     paddingLeft: "10px",
+//     paddingRight: "15px",
+//     cursor: "default",
+// };
+
 // return (
 // <div className="App">
 //     <h1 style={style}>Book List</h1>

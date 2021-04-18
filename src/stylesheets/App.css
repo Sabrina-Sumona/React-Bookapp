@@ -31,3 +31,14 @@
 .nav-bar a:hover, a:active, a.active{
   color: rgb(60, 210, 248);
 }
+
+.heading{
+  border: 5px solid darkblue;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 15px;
+  cursor: default;
+}
