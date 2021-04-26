@@ -1,3 +1,42 @@
+// console.log("Hello React..");
+//js was scripting language for browsers at first
+//but now using node.js js file can be ran in desktop or server without help of html or browser
+//node.js is js runtime built on chrome's v8 js engine
+//js file can be ran in command promt or terminal of vs code
+//npm - node package manager
+//package/ module/depedency/library are similar
+//npmjs.com holds all packages of js
+
+// let date_format = require('date-format');
+// let time = date_format('hh:mm:ss.SSS', new Date());
+// console.log(time);
+// let year = date_format('dd/MM/yyyy', new Date());
+// console.log(year);
+
+//from https://www.npmjs.com/package/date-format
+
+// let format = require('date-format');
+// format.asString(); //defaults to ISO8601 format and current date.
+// format.asString(new Date()); //defaults to ISO8601 format
+// format.asString('hh:mm:ss.SSS', new Date()); //just the time
+
+// or
+
+// var format = require('date-format');
+// format(); //defaults to ISO8601 format and current date.
+// format(new Date());
+// format('hh:mm:ss.SSS', new Date());
+
+// Format string can be anything, but the following letters will be replaced (and leading zeroes added if necessary):
+// dd - date.getDate()
+// MM - date.getMonth() + 1
+// yy - date.getFullYear().toString().substring(2, 4)
+// yyyy - date.getFullYear()
+// hh - date.getHours()
+// mm - date.getMinutes()
+// ss - date.getSeconds()
+// SSS - date.getMilliseconds()
+// O - timezone offset in +hm format (note that time will be in UTC if displaying offset)
 
 // import Myself from './representation/Myself';
 // import Myapp from './representation/Myapp';
